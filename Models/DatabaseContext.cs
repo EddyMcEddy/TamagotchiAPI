@@ -13,7 +13,8 @@ namespace TamagotchiAPI.Models
         // Change this to true if you want to have logging of SQL statements in development
         private static bool LOG_SQL_STATEMENTS_IN_DEVELOPMENT = false;
 
-        // Add database tables here
+        // Add database tables here: We ADDED THIS OURSELVES **************
+        public DbSet<Pets> Pets { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
