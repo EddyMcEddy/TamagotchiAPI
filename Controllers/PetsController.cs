@@ -45,9 +45,9 @@ namespace TamagotchiAPI.Controllers
 
             // Associate the pet to the given scolding.
             newScolding.PetId = pet.Id;
-            newScolding.When = DateTime.Now;
+            newScolding.When = DateTime.UtcNow;
             pet.HappinessLevel -= 5;
-            pet.LastInteraction = DateTime.Now;
+            pet.LastInteraction = DateTime.UtcNow;
 
             // Add the scolding to the database
             _context.Scolding.Add(newScolding);
@@ -81,7 +81,7 @@ namespace TamagotchiAPI.Controllers
 
             // Associate the player to the given pet
             newFeeding.PetId = pet.Id;
-            newFeeding.When = DateTime.Now;
+            newFeeding.When = DateTime.UtcNow;
             pet.HappinessLevel += 3;
             if (pet.HungerLevel > 5)
             {
@@ -91,7 +91,7 @@ namespace TamagotchiAPI.Controllers
             {
                 pet.HungerLevel = 0;
             }
-            pet.LastInteraction = DateTime.Now;
+            pet.LastInteraction = DateTime.UtcNow;
 
             // Add the feeding to the database
             _context.Feeding.Add(newFeeding);
@@ -127,7 +127,7 @@ namespace TamagotchiAPI.Controllers
             playtime.PetId = pet.Id;
 
             //New DateTime
-            playtime.LastPlayTime = DateTime.Now;
+            playtime.LastPlayTime = DateTime.UtcNow;
 
             // needs to add +5 to happiness lvl
             pet.HappinessLevel += 5;
